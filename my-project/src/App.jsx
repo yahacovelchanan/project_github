@@ -1,14 +1,11 @@
 import React from 'react'
-import Timer from './comps/timer'
-import Bombs from './comps/Bombs'
-import SizeBoard from './comps/sizeBoard'
+import Aside from './comps/Aside'
+
 
 export default function App() {
   return (
     <div>
-        <Timer/>
-        <Bombs />
-        <SizeBoard />
+        <Aside />
     </div>
   )
 }
