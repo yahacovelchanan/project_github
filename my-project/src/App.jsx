@@ -2,6 +2,7 @@ import React from 'react'
 import Aside from './comps/Aside'
 import Heder from './comps/Heder'
 import Meseg from './comps/Meseg'
+import Reset from './comps/Reset'
 
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
         <Heder />
         <Aside />
         <Meseg />
+        <Reset />
     </div>
   )
 }
