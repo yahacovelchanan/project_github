@@ -23,7 +23,7 @@ let lenList
         const table =() =>{
         const tempboard =[]
         for (let i = 0; i < 100; i++) {
-        tempboard.push({ id: i, status: true })
+        tempboard.push({ id: i })
         
     }
     return tempboard
@@ -45,14 +45,14 @@ export default function GameBoard() {
             if(num.id==list[i].id){
                 e.target.innerText="💣"
                 e.target.className = 'bg-red-600 flex flex items-center justify-center'
-                setWin("win the game")
+                list.splice(i,1)
+                if(list.length==0)
+                {setWin("win the game")}
             }else{
-                if (e.target.className !== 'bg-green-600 border'&&
-                    e.target.className !== 'bg-red-600'){
+                if (e.target.className !== 'bg-green-600 border flex items-center justify-center'&&
+                    e.target.className !== 'bg-red-600 flex flex items-center justify-center'){
                     e.target.innerText="x"
                     e.target.className = 'bg-green-600 border flex items-center justify-center'
-                    console.log(e);
-                    
                     console.log("num",num);
                     setCount(count + 1);
                 }
