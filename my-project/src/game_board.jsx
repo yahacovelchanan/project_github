@@ -29,9 +29,9 @@ let lenList
     return tempboard
 }
 
-export default function GameBoard() {
+export default function GameBoard(props) {
 
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
     const [win, setWin] = useState("");
     const [list,setList]=useState([]);
     const [board,setBoard]=useState(()=>table());
@@ -45,25 +45,25 @@ export default function GameBoard() {
             if(num.id==list[i].id){
                 e.target.innerText="💣"
                 e.target.className = 'bg-red-600 flex flex items-center justify-center'
-                setWin("win the game")
+                console.log(props.count+1)
+                props.setcount(props.count+1);
             }else{
-                if (e.target.className !== 'bg-green-600 border'&&
-                    e.target.className !== 'bg-red-600'){
+               if ( e.target.className !== 'bg-green-600 border flex items-center justify-center'&&
+                e.target.className !== 'bg-red-600 flex flex items-center justify-center')
+                
+                   {
                     e.target.innerText="x"
                     e.target.className = 'bg-green-600 border flex items-center justify-center'
-                    console.log(e);
-                    
-                    console.log("num",num);
-                    setCount(count + 1);
+
                 }
             }
         }
     };
     return (
-        <div>
+        <div className=' border-4 border-amber-400'>
             <main className='grid grid-rows-10
 //      grid-cols-10 bg-amber-300 border-amber-600
-//       h-150 w-150 mt-30 border-4 grid-flow-col'>
+//       h-150 w-150  border-4 grid-flow-col'>
                 {board.map((num) => (
                     <div key={num.id}
                         onClick={(e) => handleClick(e, num)}
@@ -73,8 +73,8 @@ export default function GameBoard() {
                 ))}
 
             </main>
-            <div>count:{count}</div>
-            <p>{win}</p>
+            {/* <div>count:{count}</div> */}
+            {/* <p>{win}</p> */}
         </div>
 
     )

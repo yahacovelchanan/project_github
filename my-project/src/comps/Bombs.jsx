@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function Bombs() {
-    const [countBomb, setCountBomb] = useState(0)
-
-    const addBomb = () => {setCountBomb((prev)=>{prev+1})}
+export default function Bombs(prop) {
+  console.log(prop.count)
+    const [countBomb, setCountBomb] = useState(prop.count)
+  console.log(countBomb)
   return (
     <div className="border border-amber-300 w-50">
         <div className="text-xl flex text-white  w-50 h-15 justify-center items-center bg-blue-900">
@@ -11,7 +11,7 @@ export default function Bombs() {
             <p>Bombs Remaining</p>
         </div>
     <div className="text-3xl flex text-white  w-50 h-15 justify-center items-center bg-blue-950">
-      <p>{countBomb}</p>
+      <p>{prop.count}</p>
     </div>
     </div>
   )
